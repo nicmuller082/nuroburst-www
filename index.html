@@ -9,14 +9,27 @@
     />
     <meta name="theme-color" content="#060812" />
     <title>Nuroburst — Coming soon</title>
-    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <!-- Critical CSS: keeps page dark + icons small even if styles.css is delayed -->
+    <style>
+      html, body {
+        margin: 0;
+        min-height: 100%;
+        background: #060812;
+        color: #f1f5f9;
+        font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+      .logo { height: 40px; width: auto; display: block; }
+      .icon svg { width: 1.2rem; height: 1.2rem; display: block; }
+      .aurora, .noise { pointer-events: none; }
+    </style>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
     <div class="aurora" aria-hidden="true"></div>
@@ -27,7 +40,7 @@
         <div class="brand">
           <img
             class="logo"
-            src="logo.png"
+            src="/logo.png"
             alt="Nuroburst"
             width="180"
             height="44"
@@ -61,7 +74,7 @@
         <section class="pillars" aria-label="What Nuroburst does">
           <article class="pillar">
             <div class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
                 <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" stroke-linejoin="round" />
               </svg>
             </div>
@@ -71,51 +84,48 @@
               people abandon.
             </p>
           </article>
-
           <article class="pillar">
             <div class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
-                <path d="M12 2l2.4 7.2H22l-6 4.8 2.3 7.2L12 16.8 5.7 21.2 8 14 2 9.2h7.6L12 2z" stroke-linejoin="round" />
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                <path d="M12 20V10" stroke-linecap="round" />
+                <path d="M18 20V4" stroke-linecap="round" />
+                <path d="M6 20v-4" stroke-linecap="round" />
               </svg>
             </div>
-            <h2>Real mastery</h2>
+            <h2>Mastery levels</h2>
             <p>
-              Progress is measured in levels of retention — not a completion
-              checkbox after a single pass.
+              Progress you can see. Level 10 means the material is locked in — not
+              just completed once.
             </p>
           </article>
-
           <article class="pillar">
             <div class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
                 <circle cx="12" cy="12" r="9" />
-                <path d="M12 7v5l3 2" stroke-linecap="round" />
+                <circle cx="12" cy="12" r="5" />
+                <circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none" />
               </svg>
             </div>
-            <h2>Practice that adapts</h2>
+            <h2>Weak-area focus</h2>
             <p>
-              Weak areas get attention. Strong areas stay sharp. Learning compounds
-              instead of fading.
+              Practice targets what people miss — so time is spent where it moves
+              the needle.
             </p>
           </article>
         </section>
 
         <section class="note">
           <p>
-            Built for teams that need knowledge to hold under pressure — not slide
-            decks that disappear after the workshop.
+            We’re finishing pilot polish with real teams. The full product is on the
+            way.
           </p>
         </section>
       </main>
 
       <footer class="foot">
-        <p class="copy">&copy; <span id="y"></span> Nuroburst</p>
-        <p class="domain">www.nuroburst.com</p>
+        <p class="domain">nuroburst.com</p>
+        <p>Retention-first learning for modern teams.</p>
       </footer>
     </div>
-
-    <script>
-      document.getElementById("y").textContent = new Date().getFullYear();
-    </script>
   </body>
 </html>
