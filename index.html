@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Nuroburst — retention-first learning. Training that sticks. Coming soon."
+    />
+    <meta name="theme-color" content="#060812" />
+    <title>Nuroburst — Coming soon</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="aurora" aria-hidden="true"></div>
+    <div class="noise" aria-hidden="true"></div>
+
+    <div class="page">
+      <header class="top">
+        <div class="brand">
+          <img
+            class="logo"
+            src="logo.png"
+            alt="Nuroburst"
+            width="180"
+            height="44"
+            onerror="this.style.display='none';this.nextElementSibling.hidden=false;"
+          />
+          <div class="wordmark" hidden>
+            <span class="mark">N</span>
+            <span class="name">Nuroburst</span>
+          </div>
+        </div>
+        <span class="status">
+          <span class="dot" aria-hidden="true"></span>
+          Coming soon
+        </span>
+      </header>
+
+      <main>
+        <section class="hero">
+          <p class="eyebrow">Retention-first learning platform</p>
+          <h1>
+            Training that<br />
+            <span class="gradient-text">actually sticks.</span>
+          </h1>
+          <p class="lede">
+            Most learning is forgotten within days. Nuroburst is built so knowledge
+            stays — short Bursts, real mastery levels, and practice that meets people
+            where they are weak.
+          </p>
+        </section>
+
+        <section class="pillars" aria-label="What Nuroburst does">
+          <article class="pillar">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <h2>Short Bursts</h2>
+            <p>
+              Micro-sessions that fit the workday — not another hour-long course
+              people abandon.
+            </p>
+          </article>
+
+          <article class="pillar">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                <path d="M12 2l2.4 7.2H22l-6 4.8 2.3 7.2L12 16.8 5.7 21.2 8 14 2 9.2h7.6L12 2z" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <h2>Real mastery</h2>
+            <p>
+              Progress is measured in levels of retention — not a completion
+              checkbox after a single pass.
+            </p>
+          </article>
+
+          <article class="pillar">
+            <div class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v5l3 2" stroke-linecap="round" />
+              </svg>
+            </div>
+            <h2>Practice that adapts</h2>
+            <p>
+              Weak areas get attention. Strong areas stay sharp. Learning compounds
+              instead of fading.
+            </p>
+          </article>
+        </section>
+
+        <section class="note">
+          <p>
+            Built for teams that need knowledge to hold under pressure — not slide
+            decks that disappear after the workshop.
+          </p>
+        </section>
+      </main>
+
+      <footer class="foot">
+        <p class="copy">&copy; <span id="y"></span> Nuroburst</p>
+        <p class="domain">www.nuroburst.com</p>
+      </footer>
+    </div>
+
+    <script>
+      document.getElementById("y").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
