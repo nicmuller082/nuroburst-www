@@ -259,6 +259,24 @@ h1 {
   color: #cbd5e1;
 }
 
+.note .contact {
+  margin-top: 0.7rem;
+  color: var(--muted);
+}
+
+.note a,
+.mail {
+  color: var(--accent-soft);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.note a:hover,
+.mail:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .foot {
   margin-top: auto;
   padding-top: 2.75rem;
