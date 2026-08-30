@@ -283,7 +283,7 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem 1.25rem;
-  align-items: baseline;
+  align-items: center;
   font-size: 0.85rem;
   color: var(--faint);
 }
@@ -294,6 +294,21 @@ h1 {
 
 .domain {
   letter-spacing: 0.02em;
+}
+
+.origin {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.flag {
+  display: block;
+  width: 18px;
+  height: 10px;
+  border-radius: 1px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.18);
+  flex-shrink: 0;
 }
 
 .updated {
