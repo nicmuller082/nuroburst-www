@@ -1,3 +1,11 @@
+/* Locally hosted variable font: one Latin subset for all used weights. */
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url('/assets/fonts/plus-jakarta-sans-latin-v12.woff2') format('woff2');
+}
 /* Nuroburst — bold learning, purposeful color, generous space. */
 :root {
   --ink:#08164b; --text:#283558; --muted:#5a6681; --line:#e0e5f2;
@@ -367,3 +375,19 @@ main {min-height:50vh}
 #pilot-form>p {font-size:.8125rem}
 @media(max-width:900px) {.pilot-layout{gap:40px}}
 @media(max-width:700px) {.pilot-layout{grid-template-columns:1fr}}
+
+/* logo.png is RGBA with a transparent canvas. Sit it on solid white everywhere. */
+.brand img,
+footer .brand img,
+img[src="/logo.png"],
+img[src*="logo.png"],
+img[src="/assets/nuroburst-logo-204.webp"] {
+  background: #ffffff !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+  padding: 5px;
+  border-radius: 10px;
+}
+footer .brand img {
+  box-shadow: 0 0 0 2px #ffffff;
+}
