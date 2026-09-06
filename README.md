@@ -10,7 +10,7 @@ The original logo is preserved in the repository. Pages use a 204px lossless Web
 
 ## Pages
 
-`/`, `/product.html`, `/how-it-works.html`, `/create.html`, `/pricing.html`, `/compare.html`, `/pilot.html`, `/about.html`, `/privacy.html`, `/terms.html`.
+`/`, `/product.html`, `/how-it-works.html`, `/create.html`, `/pricing.html`, `/compare.html`, `/pilot.html`, `/about.html`, `/privacy.html`, `/terms.html`, `/use-cases.html`, `/faq.html`, `/contact.html`, `/demo.html`.
 
 ## Asset
 
@@ -20,10 +20,16 @@ The original logo is preserved in the repository. Pages use a 204px lossless Web
 
 Run `node --check main.js` for JavaScript syntax. Serve the repository root with a static HTTP server when reviewing locally. Absolute asset paths require serving from the domain root.
 
-The pilot form opens the visitor’s email client to info@nuroburst.com; it does not submit to a backend. Pricing values and legal terms are retained. Mobile navigation supports expanded state, Escape, outside click, and the 1000px desktop breakpoint. Focus styles, skip links, reduced-motion and forced-color preferences are supported.
+The contact page opens a visitor’s email client and offers a clipboard fallback; it does not submit to a backend or promise a booked meeting. The learning example runs locally in the browser, with correct and incorrect feedback, explanation, and reset; no answers are sent or stored. Pricing amounts are retained. Archived learners are not invoiced, irrespective of activity; other enrolled learners are billable. Privacy and terms pages are factual overviews, not a substitute for confirmed product data-processing and commercial agreements. Mobile navigation supports expanded state, Escape, outside click, and the 1100px desktop breakpoint. Focus styles, skip links, reduced-motion and forced-color preferences are supported.
 
 ## Loading performance
 
 Pages use a single same-origin stylesheet and a preloaded, locally hosted Plus Jakarta Sans variable WOFF2 (Latin subset, weights 400–800, font-display swap). The SIL OFL license is included beside the font. There are no Google Fonts requests at runtime. The logo payload is reduced from 729,441 bytes to 37,834 bytes; the original remains available. The font is 27,348 bytes.
 
 Inspection found the site sends `Cache-Control: public, max-age=0, s-maxage=300` for shared assets, which requires browser revalidation. Changing browser cache policy requires hosting configuration; this patch does not claim to change it. Raw test timings include the remote testing environment’s connection overhead and are not representative visitor benchmarks.
+
+## Remaining owner inputs
+
+A connected booking or enquiry endpoint, authentic product screenshots or recordings, and approved customer evidence can strengthen the next stage. Product hosting, subprocessors, retention/deletion rules, and contractual terms need owner confirmation before publishing a full legal or security policy. No customer proof, integration guarantees, or compliance certifications are invented. The interactive example is clearly labeled sample content.
+
+All pages have canonical URLs, unique descriptions and Open Graph text metadata. `sitemap.xml` and `robots.txt` support discovery.
