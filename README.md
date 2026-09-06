@@ -20,7 +20,7 @@ The original logo is preserved in the repository. Pages use a 204px lossless Web
 
 Run `node --check main.js` for JavaScript syntax. Serve the repository root with a static HTTP server when reviewing locally. Absolute asset paths require serving from the domain root.
 
-The contact page opens a visitor’s email client and offers a clipboard fallback; it does not submit to a backend or promise a booked meeting. The learning example runs locally in the browser, with correct and incorrect feedback, explanation, and reset; no answers are sent or stored. Pricing amounts are retained. Archived learners are not invoiced, irrespective of activity; other enrolled learners are billable. Privacy and terms pages are factual overviews, not a substitute for confirmed product data-processing and commercial agreements. Mobile navigation supports expanded state, Escape, outside click, and the 1100px desktop breakpoint. Focus styles, skip links, reduced-motion and forced-color preferences are supported.
+The contact page submits enquiries through FormSubmit, with direct email as a fallback. It does not promise a booked meeting. The learning example runs locally in the browser, with correct and incorrect feedback, explanation, and reset; no answers are sent or stored. Pricing amounts are retained. Archived learners are not invoiced, irrespective of activity; other enrolled learners are billable. Privacy and terms pages are factual overviews, not a substitute for confirmed product data-processing and commercial agreements. Mobile navigation supports expanded state, Escape, outside click, and the 1100px desktop breakpoint. Focus styles, skip links, reduced-motion and forced-color preferences are supported.
 
 ## Loading performance
 
@@ -33,3 +33,9 @@ Inspection found the site sends `Cache-Control: public, max-age=0, s-maxage=300`
 A connected booking or enquiry endpoint, authentic product screenshots or recordings, and approved customer evidence can strengthen the next stage. Product hosting, subprocessors, retention/deletion rules, and contractual terms need owner confirmation before publishing a full legal or security policy. No customer proof, integration guarantees, or compliance certifications are invented. The interactive example is clearly labeled sample content.
 
 All pages have canonical URLs, unique descriptions and Open Graph text metadata. `sitemap.xml` and `robots.txt` support discovery.
+
+## Contact form
+
+The primary contact form POSTs to FormSubmit for info@nuroburst.com with its default CAPTCHA and a honeypot. Name, email, and company are required; team size, interest, and training needs provide context. Native browser validation works without JavaScript. No client-side success message fabricates delivery. FormSubmit handles the submission result.
+
+Owner action: submit the live form once, then confirm FormSubmit’s activation email in info@nuroburst.com. Delivery is not verified until that confirmation and an end-to-end inbox check. The learning sample remains at its legacy URL but is no longer promoted in the main visitor journey.
