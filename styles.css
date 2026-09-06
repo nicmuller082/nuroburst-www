@@ -410,3 +410,11 @@ footer .brand img {
 .course-package-contact a {color:var(--violet);text-decoration:underline;text-underline-offset:4px}
 @media(max-width:1100px) {.course-packages{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px) {.course-packages{grid-template-columns:1fr}.course-package>p{min-height:0}}
+
+/* Concise, sourced About page */
+.research-citation {font-size:.8125rem!important;line-height:1.7;margin-top:22px!important}
+.research-citation a {color:var(--violet);text-decoration:underline;text-underline-offset:3px}
+.research-context {font-size:.875rem;color:var(--muted);max-width:850px;margin:25px 0 0}
+.mastery-explanation {margin-top:30px;padding:28px 32px;border-left:3px solid var(--violet);background:var(--paper);border-radius:0 12px 12px 0}
+.mastery-explanation p {max-width:960px;margin-bottom:0}
+@media(max-width:600px) {.mastery-explanation{padding:24px}.research-context{font-size:.875rem}}
