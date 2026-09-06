@@ -1,5 +1,22 @@
-document.getElementById("menu")?.addEventListener("click", () => {
-  document.querySelector(".nav")?.classList.toggle("open");
+const menu = document.getElementById("menu");
+const nav = document.querySelector(".nav");
+function setMenu(open) {
+  nav?.classList.toggle("open", open);
+  menu?.setAttribute("aria-expanded", String(open));
+  if (menu) menu.textContent = open ? "Close" : "Menu";
+}
+menu?.addEventListener("click", () => setMenu(!nav.classList.contains("open")));
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && nav?.classList.contains("open")) {
+    setMenu(false);
+    menu?.focus();
+  }
+});
+document.addEventListener("click", (event) => {
+  if (nav && !nav.contains(event.target)) setMenu(false);
+});
+window.matchMedia("(min-width: 901px)").addEventListener("change", (event) => {
+  if (event.matches) setMenu(false);
 });
 
 const form = document.getElementById("pilot-form");
