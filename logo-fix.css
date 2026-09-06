@@ -1,0 +1,14 @@
+/* logo.png is RGBA with a transparent canvas. Sit it on solid white everywhere. */
+.brand img,
+footer .brand img,
+img[src="/logo.png"],
+img[src*="logo.png"] {
+  background: #ffffff !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+  padding: 5px;
+  border-radius: 10px;
+}
+footer .brand img {
+  box-shadow: 0 0 0 2px #ffffff;
+}
