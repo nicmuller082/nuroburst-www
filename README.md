@@ -36,6 +36,6 @@ All pages have canonical URLs, unique descriptions and Open Graph text metadata.
 
 ## Contact form
 
-The primary contact form POSTs to FormSubmit for info@nuroburst.com with its default CAPTCHA and a honeypot. Name, email, and company are required; team size, interest, and training needs provide context. Native browser validation works without JavaScript. No client-side success message fabricates delivery. FormSubmit handles the submission result.
+The primary contact form POSTs to FormSubmit for info@nuroburst.com with its default CAPTCHA and a honeypot. Name, email, company, country calling code, and phone number are required; team size, interest, and training needs provide context. Native browser validation works without JavaScript. No client-side success message fabricates delivery. FormSubmit handles the submission result.
 
 Owner action: submit the live form once, then confirm FormSubmit’s activation email in info@nuroburst.com. Delivery is not verified until that confirmation and an end-to-end inbox check. The learning sample remains at its legacy URL but is no longer promoted in the main visitor journey.
