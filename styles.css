@@ -391,3 +391,22 @@ img[src="/assets/nuroburst-logo-204.webp"] {
 footer .brand img {
   box-shadow: 0 0 0 2px #ffffff;
 }
+
+/* Course creation packages */
+.course-packages {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.course-package {padding:28px 24px;border-top:3px solid var(--blue)}
+.course-package:nth-child(2) {border-top-color:#5942df}
+.course-package:nth-child(3) {border-top-color:#8c32cd}
+.course-package:nth-child(4) {border-top-color:var(--magenta)}
+.package-label {font-size:.75rem;letter-spacing:.09em;font-weight:700;color:var(--muted);margin-bottom:15px}
+.course-package h3 {font-size:1.75rem;margin-bottom:12px}
+.course-package>p {font-size:.9375rem;min-height:3.5em}
+.course-package ul {margin:24px 0 0;padding:20px 0 0 18px;border-top:1px solid var(--line)}
+.course-package li {font-size:.9375rem;line-height:1.65;margin-bottom:13px;padding-left:3px}
+.course-package li:last-child {margin-bottom:0}
+.course-package li::marker {color:var(--violet)}
+.course-package-scope {font-size:.8125rem;color:var(--muted);text-align:center;margin:25px 0 5px}
+.course-package-contact {font-size:.875rem;text-align:center;margin:0}
+.course-package-contact a {color:var(--violet);text-decoration:underline;text-underline-offset:4px}
+@media(max-width:1100px) {.course-packages{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px) {.course-packages{grid-template-columns:1fr}.course-package>p{min-height:0}}
