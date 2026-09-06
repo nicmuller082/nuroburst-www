@@ -15,7 +15,7 @@ document.addEventListener("keydown", (event) => {
 document.addEventListener("click", (event) => {
   if (nav && !nav.contains(event.target)) setMenu(false);
 });
-window.matchMedia("(min-width: 901px)").addEventListener("change", (event) => {
+window.matchMedia("(min-width: 1001px)").addEventListener("change", (event) => {
   if (event.matches) setMenu(false);
 });
 
