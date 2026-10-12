@@ -458,3 +458,63 @@ summary {cursor:pointer} summary:focus-visible {outline:3px solid var(--blue);ou
 
 /* Primary enquiry form */
 .enquiry-fields {display:grid;grid-template-columns:1fr 1fr;gap:16px}#demo-request-form label {display:block;font-size:.8125rem;font-weight:700;color:var(--ink);margin:16px 0 7px}#demo-request-form input:not([type="hidden"]),#demo-request-form select,#demo-request-form textarea {display:block;width:100%;min-height:48px;border:1px solid #cbd3e6;border-radius:7px;background:white;color:var(--ink);padding:11px 12px;font-size:.9375rem;line-height:1.5}#demo-request-form textarea {resize:vertical}#demo-request-form .form-honeypot {display:none!important}.form-privacy {font-size:.75rem;color:var(--muted);line-height:1.7;margin:18px 0}.form-privacy a {text-decoration:underline;text-underline-offset:3px}.reinforcement-list {list-style:none;padding:0;margin:25px 0}.reinforcement-list li {padding:16px 0;border-top:1px solid var(--line)}.reinforcement-list strong,.reinforcement-list span {display:block}.reinforcement-list span {font-size:.875rem;color:var(--muted);margin-top:4px}@media(max-width:560px){.enquiry-fields{grid-template-columns:1fr;gap:0}}
+
+/* WEB-01 (2026-10-12) - homepage shows the product: real captures from the
+   live app (assets/product/), one telling of the loop, pricing strip and a
+   priced pilot. */
+.wb-shot {margin:0}
+.wb-shot img {display:block;width:100%;height:auto}
+.wb-hero-shot {position:relative;margin:0 -56px 0 -8px}
+/* Nic: "it must be aparent on the site that you can do everything from
+   mobile or desktop" - the phone sits over the laptop's corner. */
+.wb-shot img.wb-hero-phone {position:absolute;right:0;bottom:-9%;width:25%;height:auto;filter:drop-shadow(0 20px 30px rgba(8,22,75,.18))}
+.wb-split {display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:center}
+.wb-split-reverse {grid-template-columns:1fr 1.1fr}
+.wb-gif img,.wb-card-shot img {border:1px solid var(--line);border-radius:14px;box-shadow:0 24px 70px rgba(38,54,109,.08)}
+.wb-steps {list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.wb-steps li {display:flex;flex-direction:column}
+.wb-steps .wb-shot {display:grid;place-items:center;aspect-ratio:1100/680;margin-bottom:22px}
+.wb-steps .wb-shot img {max-height:100%;object-fit:contain}
+.wb-ring {border-radius:14px;background:linear-gradient(135deg,#fff,#f0edfc)}
+.wb-ring img {width:min(78%,300px);border-radius:12px;box-shadow:0 18px 40px rgba(38,54,109,.12)}
+.wb-step-no {color:var(--violet);font-weight:800;font-size:.8125rem;letter-spacing:.08em;margin-bottom:6px}
+.wb-steps h3 {margin:0 0 8px}
+.wb-manager-lines {margin:8px 0 18px;border-top:1px solid #e9ecf4}
+.wb-manager-lines .manager-line span {display:block;color:var(--muted);font-size:.9375rem}
+.wb-note {font-size:.875rem;color:#485576;font-weight:600}
+.wb-use-compact .use-card {padding:24px 26px}
+.wb-use-compact .use-card h3 {font-size:1.1rem;margin:0 0 6px}
+.wb-use-compact .use-card p {margin:0;font-size:.9375rem;color:var(--muted)}
+.wb-plans {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.wb-plan {display:flex;justify-content:space-between;align-items:baseline;padding:26px 28px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);transition:border-color .18s,box-shadow .18s}
+.wb-plan:hover {border-color:#aab9e1;box-shadow:0 10px 30px rgba(38,54,109,.08)}
+.wb-plan span {font-weight:700}
+.wb-plan strong {font-size:2rem;letter-spacing:-.03em}
+.wb-plan small {font-size:.875rem;color:var(--muted);font-weight:600;margin-left:2px}
+.wb-plans-note {margin:18px 0 0}
+.wb-pilot {display:flex;justify-content:space-between;align-items:center;gap:32px;margin-top:44px;padding:30px 32px;border-radius:16px;background:#fff;border:1px solid #d9e0f1}
+.wb-pilot .kicker {margin-bottom:10px}
+.wb-pilot h3 {margin:0 0 6px}
+.wb-pilot p {margin:0;color:var(--text)}
+@media(max-width:1000px) {
+  .wb-split,.wb-split-reverse {grid-template-columns:1fr;gap:40px}
+  .wb-hero-shot {margin-right:0}
+  .wb-steps {grid-template-columns:1fr;gap:40px}
+  .wb-plans {grid-template-columns:1fr}
+  .wb-pilot {flex-direction:column;align-items:flex-start}
+}
+.wb-journey-shot {margin-top:22px;max-width:640px}
+.wb-card-img {margin:-6px -6px 18px}
+.wb-wide-shot {margin-top:36px}
+.wb-wide-shot figcaption {margin-top:12px;color:var(--muted);font-size:.875rem}
+.wb-before-grid {margin:0 0 36px}
+.wb-pilot-offer {padding-bottom:0}
+.wb-pilot-offer .wb-pilot {margin-top:0}
+.wb-usecase-shot {padding-top:0}
+.wb-device-pair {position:relative;max-width:860px;margin:0 auto}
+.wb-device-pair figcaption {margin-top:44px;text-align:center;color:var(--muted);font-size:.9375rem}
+.course-package .wb-price,.wb-price {font-size:1.6rem;font-weight:800;letter-spacing:-.03em;color:var(--ink);margin:-4px 0 10px}
+@media(max-width:700px) {
+  .wb-hero-shot img {width:min(78%,320px);margin:0 auto}
+  .wb-shot img.wb-hero-phone {display:none}
+}

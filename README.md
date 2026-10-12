@@ -4,13 +4,17 @@ Static HTML, CSS, and JavaScript at the repository root. No build step or depend
 
 ## Design
 
-A bright, grown-up brand system with bold navy typography, electric blue/violet/magenta accents, and an original flowing-light background. The story centers on gamified learning, Bursts, spaced repetition, and mastery Levels 1–10. The hero is labeled as an illustrative preview, not a product screenshot or measured performance data.
+A bright, grown-up brand system with bold navy typography, electric blue/violet/magenta accents, and an original flowing-light background. The story centers on gamified learning, Bursts, spaced repetition, and mastery Levels 1–10. The homepage hero shows a real capture of the learner home on a laptop and a phone (WEB-01), not measured performance data.
 
 The original logo is preserved in the repository. Pages use a 204px lossless WebP with a baked-in opaque white canvas. White-plate rules from `logo-fix.css` are included in the main stylesheet to avoid a second blocking stylesheet request. Client reference graphics are not shipped. There are no customer-specific offers, names, images, or outcome statistics in the redesign.
 
 ## Pages
 
 `/`, `/product.html`, `/how-it-works.html`, `/create.html`, `/pricing.html`, `/compare.html`, `/pilot.html`, `/about.html`, `/privacy.html`, `/terms.html`, `/use-cases.html`, `/faq.html`, `/contact.html`, `/demo.html`.
+
+## Product captures (WEB-01, 2026-10-12)
+
+`assets/product/` holds real captures from the live app (app.nuroburst.com), demo company and demo names only: learner home on a laptop and a phone, a Money Smart lesson, a Burst with first-try points, the level ring, the wrong-answer return (GIF), the badge cabinet, a manager course progress report (a course with real Level 10 learners - not staged), the course builder, and an AI draft becoming an unpublished draft (GIF). Laptop and phone frames are drawn around the screenshots. Missing: the NuroGym still (07) - its slot is marked with an HTML comment on product.html. Source files and per-capture notes are kept outside this repository.
 
 ## Asset
 
@@ -30,7 +34,7 @@ Inspection found the site sends `Cache-Control: public, max-age=0, s-maxage=300`
 
 ## Remaining owner inputs
 
-A connected booking or enquiry endpoint, authentic product screenshots or recordings, and approved customer evidence can strengthen the next stage. Product hosting, subprocessors, retention/deletion rules, and contractual terms need owner confirmation before publishing a full legal or security policy. No customer proof, integration guarantees, or compliance certifications are invented. The interactive example is clearly labeled sample content.
+A connected booking or enquiry endpoint and approved customer evidence can strengthen the next stage. Product hosting, subprocessors, retention/deletion rules, and contractual terms need owner confirmation before publishing a full legal or security policy. No customer proof, integration guarantees, or compliance certifications are invented. The interactive example is clearly labeled sample content.
 
 All pages have canonical URLs, unique descriptions and Open Graph text metadata. `sitemap.xml` and `robots.txt` support discovery.
 
