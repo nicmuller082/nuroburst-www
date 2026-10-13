@@ -468,13 +468,16 @@ summary {cursor:pointer} summary:focus-visible {outline:3px solid var(--blue);ou
 /* Nic: "it must be aparent on the site that you can do everything from
    mobile or desktop" - the phone sits over the laptop's corner. */
 .wb-shot img.wb-hero-phone {position:absolute;right:0;bottom:-9%;width:25%;height:auto;filter:drop-shadow(0 20px 30px rgba(8,22,75,.18))}
+.wb-stack {display:grid;gap:36px;justify-items:center;text-align:center}
+.wb-stack .kicker {justify-content:center}
+.wb-stack p {margin-inline:auto;max-width:560px}
+.wb-stack .wb-shot {width:100%;max-width:1060px}
 .wb-split {display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:center}
 .wb-split-reverse {grid-template-columns:1fr 1.1fr}
-.wb-gif img,.wb-card-shot img {border:1px solid var(--line);border-radius:14px;box-shadow:0 24px 70px rgba(38,54,109,.08)}
+.wb-card-shot img {border:1px solid var(--line);border-radius:14px;box-shadow:0 24px 70px rgba(38,54,109,.08)}
 .wb-steps {list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
 .wb-steps li {display:flex;flex-direction:column}
-.wb-steps .wb-shot {display:grid;place-items:center;aspect-ratio:1100/680;margin-bottom:22px}
-.wb-steps .wb-shot img {max-height:100%;object-fit:contain}
+.wb-steps .wb-shot {margin-bottom:20px}
 .wb-ring {border-radius:14px;background:linear-gradient(135deg,#fff,#f0edfc)}
 .wb-ring img {width:min(78%,300px);border-radius:12px;box-shadow:0 18px 40px rgba(38,54,109,.12)}
 .wb-step-no {color:var(--violet);font-weight:800;font-size:.8125rem;letter-spacing:.08em;margin-bottom:6px}
