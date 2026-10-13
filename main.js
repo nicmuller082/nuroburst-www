@@ -60,3 +60,32 @@ if (player) {
     feedback.textContent = ""; review.hidden = true; showStep(0); start.focus();
   });
 }
+
+// WEB-01 (2026-10-13) - Nic: "can the GIF only start playing once in full view?
+// So the user doesn't start at step 3?" Each walkthrough GIF shows a still of
+// its first explainer card until most of it is on screen, then plays from step
+// 1; scrolled away, it resets so it starts at step 1 again next time. Visitors
+// who prefer reduced motion keep the still.
+const walkthroughs = document.querySelectorAll("img[data-gif]");
+if (walkthroughs.length && "IntersectionObserver" in window &&
+    !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  let plays = 0;
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const img = entry.target;
+      if (!img.dataset.still) img.dataset.still = img.getAttribute("src");
+      if (entry.intersectionRatio >= 0.85 && img.dataset.playing !== "1") {
+        img.dataset.playing = "1";
+        img.src = `${img.dataset.gif}#play${++plays}`;
+      } else if (entry.intersectionRatio < 0.15 && img.dataset.playing === "1") {
+        img.dataset.playing = "0";
+        img.src = img.dataset.still;
+      }
+    });
+  }, { threshold: [0, 0.15, 0.85, 1] });
+  walkthroughs.forEach(img => {
+    observer.observe(img);
+    const preload = new Image();
+    preload.src = img.dataset.gif;
+  });
+}
