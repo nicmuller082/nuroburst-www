@@ -508,6 +508,8 @@ summary {cursor:pointer} summary:focus-visible {outline:3px solid var(--blue);ou
 }
 .wb-journey-shot {margin-top:22px;max-width:640px}
 .wb-card-img {margin:-6px -6px 18px}
+/* Rows of cards with a laptop on top: same image box, so headings line up. */
+.card > .wb-card-img img {aspect-ratio:1100/680;object-fit:contain;object-position:bottom}
 .wb-wide-shot {margin-top:36px}
 .wb-wide-shot figcaption {margin-top:12px;color:var(--muted);font-size:.875rem}
 .wb-before-grid {margin:0 0 36px}
