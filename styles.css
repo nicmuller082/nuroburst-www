@@ -499,6 +499,7 @@ summary {cursor:pointer} summary:focus-visible {outline:3px solid var(--blue);ou
 .wb-pilot .kicker {margin-bottom:10px}
 .wb-pilot h3 {margin:0 0 6px}
 .wb-pilot p {margin:0;color:var(--text)}
+.wb-pilot .btn {flex-shrink:0;white-space:nowrap}
 @media(max-width:1000px) {
   .wb-split,.wb-split-reverse {grid-template-columns:1fr;gap:40px}
   .wb-hero-shot {margin-right:0}
