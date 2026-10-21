@@ -40,7 +40,7 @@ All pages have canonical URLs, unique descriptions and Open Graph text metadata.
 
 ## Contact forms (WEB-FORMS-01, 2026-10-21)
 
-Two pages: `/request-demo.html` (name, email, company, phone and calling code required; team size, interest and what the team should learn optional) and `/contact.html` (name, email and message required; company optional). Every "Request a demo" link goes to the first; "Contact us" to the second.
+Two pages: `/request-demo.html` (name, email, company, phone and calling code required; team size, interest and what the team should learn optional) and `/contact.html` (name, email, phone and message required; company optional). Every "Request a demo" link goes to the first; "Contact us" to the second.
 
 `main.js` posts each form as JSON to `https://nuroburst-api.onrender.com/api/v1/public/enquiries` (`kind`: `demo` or `contact`) and shows the result on the page - no redirect. The API emails info@nuroburst.com (Reply-To the visitor) and sends the visitor a branded confirmation. Spam guards: a hidden `website` trap field and at most 5 requests an hour per visitor address. On an error the page says so and offers info@nuroburst.com. The forms need JavaScript (the site's own script); without it the email address is still on the page.
 
