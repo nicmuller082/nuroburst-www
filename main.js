@@ -93,6 +93,14 @@ if (walkthroughs.length && "IntersectionObserver" in window &&
 // Nuroburst API and show the result on the page - no redirect.
 const ENQUIRY_URL = "https://nuroburst-api.onrender.com/api/v1/public/enquiries";
 document.querySelectorAll("form.enquiry-form").forEach(form => {
+  const country = form.querySelector('select[name="phone_country"]');
+  const countryShown = form.querySelector(".phone-country-shown");
+  function showCountry() {
+    const option = country.selectedOptions[0];
+    countryShown.querySelector(".flag").textContent = option.textContent.split(" ")[0];
+    countryShown.querySelector(".code").textContent = option.dataset.code;
+  }
+  country?.addEventListener("change", showCountry);
   const status = form.querySelector(".form-status");
   const button = form.querySelector('button[type="submit"]');
   const buttonHtml = button.innerHTML;
@@ -106,6 +114,12 @@ document.querySelectorAll("form.enquiry-form").forEach(form => {
     if (!form.reportValidity()) return;
     const data = Object.fromEntries(new FormData(form).entries());
     data.kind = form.dataset.kind;
+    if (country) {
+      // The email shows "+1 2815550100 (United States)".
+      const option = country.selectedOptions[0];
+      data.phone_code = option.dataset.code;
+      data.phone_country = option.textContent.replace(/^\S+\s/, "").replace(/\s\(\+\d+\)$/, "");
+    }
     button.disabled = true;
     button.textContent = "Sending…";
     status.hidden = true;
