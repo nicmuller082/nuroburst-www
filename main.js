@@ -89,3 +89,55 @@ if (walkthroughs.length && "IntersectionObserver" in window &&
     preload.src = img.dataset.gif;
   });
 }
+// WEB-FORMS-01 (2026-10-21): "Request a demo" and "Contact us" send to the
+// Nuroburst API and show the result on the page - no redirect.
+const ENQUIRY_URL = "https://nuroburst-api.onrender.com/api/v1/public/enquiries";
+document.querySelectorAll("form.enquiry-form").forEach(form => {
+  const status = form.querySelector(".form-status");
+  const button = form.querySelector('button[type="submit"]');
+  const buttonHtml = button.innerHTML;
+  function show(message, kind) {
+    status.hidden = false;
+    status.dataset.kind = kind;
+    status.textContent = message;
+  }
+  form.addEventListener("submit", async event => {
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+    const data = Object.fromEntries(new FormData(form).entries());
+    data.kind = form.dataset.kind;
+    button.disabled = true;
+    button.textContent = "Sending…";
+    status.hidden = true;
+    try {
+      const response = await fetch(ENQUIRY_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!response.ok) {
+        const body = await response.json().catch(() => ({}));
+        throw new Error(typeof body.detail === "string" ? body.detail
+          : "Please check the details above and try again.");
+      }
+      const name = (data.name || "").split(" ")[0];
+      const what = form.dataset.kind === "demo" ? "demo request" : "message";
+      const done = document.createElement("div");
+      done.className = "form-done";
+      done.setAttribute("role", "status");
+      done.setAttribute("tabindex", "-1");
+      done.innerHTML = '<span class="form-done-mark" aria-hidden="true">✓</span><h3></h3><p></p>';
+      done.querySelector("h3").textContent = `Thanks${name ? ", " + name : ""}. We’ve got your ${what}.`;
+      done.querySelector("p").textContent =
+        `We’ll reply within one business day. A copy is on its way to ${data.email}.`;
+      form.replaceWith(done);
+      done.focus();
+    } catch (error) {
+      show(error instanceof TypeError
+        ? "We couldn’t reach our server. Please try again, or email info@nuroburst.com."
+        : error.message, "error");
+      button.disabled = false;
+      button.innerHTML = buttonHtml;
+    }
+  });
+});
