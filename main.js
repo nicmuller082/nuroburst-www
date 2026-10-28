@@ -66,27 +66,37 @@ if (player) {
 // its first explainer card until most of it is on screen, then plays from step
 // 1; scrolled away, it resets so it starts at step 1 again next time. Visitors
 // who prefer reduced motion keep the still.
-const walkthroughs = document.querySelectorAll("img[data-gif]");
+// WEB-ZOOM-01 (2026-10-28): the walkthroughs are now silent looping MP4s
+// (zoomed on the action) - same rule: the poster (step 1's card) until 85% is
+// on screen, then play from the start; below 15% pause and rewind. The file
+// only starts loading once the video comes near the screen (preload="none" in
+// the HTML, switched to "auto" here).
+const walkthroughs = document.querySelectorAll("video.wb-video");
 if (walkthroughs.length && "IntersectionObserver" in window &&
     !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  let plays = 0;
+  const loader = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.preload = "auto";
+        loader.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: "600px 0px" });
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      const img = entry.target;
-      if (!img.dataset.still) img.dataset.still = img.getAttribute("src");
-      if (entry.intersectionRatio >= 0.85 && img.dataset.playing !== "1") {
-        img.dataset.playing = "1";
-        img.src = `${img.dataset.gif}#play${++plays}`;
-      } else if (entry.intersectionRatio < 0.15 && img.dataset.playing === "1") {
-        img.dataset.playing = "0";
-        img.src = img.dataset.still;
+      const video = entry.target;
+      if (entry.intersectionRatio >= 0.85 && video.paused) {
+        video.currentTime = 0;
+        video.play().catch(() => {});
+      } else if (entry.intersectionRatio < 0.15 && !video.paused) {
+        video.pause();
+        video.currentTime = 0;
       }
     });
   }, { threshold: [0, 0.15, 0.85, 1] });
-  walkthroughs.forEach(img => {
-    observer.observe(img);
-    const preload = new Image();
-    preload.src = img.dataset.gif;
+  walkthroughs.forEach(video => {
+    loader.observe(video);
+    observer.observe(video);
   });
 }
 // WEB-FORMS-01 (2026-10-21): "Request a demo" and "Contact us" send to the

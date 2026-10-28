@@ -464,6 +464,7 @@ summary {cursor:pointer} summary:focus-visible {outline:3px solid var(--blue);ou
    priced pilot. */
 .wb-shot {margin:0}
 .wb-shot img {display:block;width:100%;height:auto}
+.wb-shot video {display:block;width:100%;height:auto;aspect-ratio:16/9;background:#fff}
 .wb-hero-shot {position:relative;margin:0 -56px 0 -8px}
 /* Nic: "it must be aparent on the site that you can do everything from
    mobile or desktop" - the phone sits over the laptop's corner. */
@@ -528,3 +529,11 @@ summary {cursor:pointer} summary:focus-visible {outline:3px solid var(--blue);ou
 .enquiry-form label {display:block;font-size:.8125rem;font-weight:700;color:var(--ink);margin:16px 0 7px}.enquiry-form input:not([type="hidden"]),.enquiry-form select,.enquiry-form textarea {display:block;width:100%;min-height:48px;border:1px solid #cbd3e6;border-radius:7px;background:white;color:var(--ink);padding:11px 12px;font-size:.9375rem;line-height:1.5}.enquiry-form textarea {resize:vertical}.enquiry-form .form-honeypot {position:absolute!important;left:-10000px!important;width:1px;height:1px;overflow:hidden}.enquiry-form button[disabled] {opacity:.7;cursor:progress}.form-status {margin-top:14px;padding:12px 14px;border-radius:8px;font-size:.875rem;line-height:1.5}.form-status[data-kind="error"] {background:#fff1f2;color:#9f1239;border:1px solid #fecdd3}.form-done {text-align:center;padding:28px 8px 8px;outline:none}.form-done-mark {display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:50%;background:linear-gradient(105deg,#0755e9,#6732e3,#c909ac);color:white;font-size:1.5rem;font-weight:800}.form-done h3 {margin:16px 0 8px;color:var(--ink)}.form-done p {color:var(--muted);margin:0}
 .phone-row {display:grid;grid-template-columns:104px 1fr;gap:8px}.phone-country {position:relative;min-height:48px;border:1px solid #cbd3e6;border-radius:7px;background:white}.phone-country:focus-within {outline:2px solid var(--blue,#0755e9);outline-offset:1px}.phone-country-shown {position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:6px;font-size:.9375rem;color:var(--ink);pointer-events:none}.phone-country-shown::after {content:"\25BE";font-size:.75rem;color:var(--muted)}.enquiry-form .phone-country select {position:absolute;inset:0;width:100%;height:100%;min-height:0;opacity:0;cursor:pointer;border:0}
 .phone-country-shown .flag {font-size:1.35rem;line-height:1}
+/* WEB-ZOOM-01 (2026-10-28) - Nic: "Ensure on the website we lead into the Video".
+   A short line above each walkthrough video: what it shows and how long. */
+.wb-watch {display:flex;align-items:center;gap:10px;margin:14px 0 0;font-weight:700;color:var(--ink);font-size:.98rem;line-height:1.4}
+.wb-watch-icon {flex-shrink:0;width:30px;height:30px;border-radius:50%;background:var(--brand-gradient);position:relative;box-shadow:0 5px 14px #6539da30}
+.wb-watch-icon:after {content:"";position:absolute;left:11px;top:9px;border-style:solid;border-width:6px 0 6px 10px;border-color:transparent transparent transparent #fff}
+.wb-journey-shot + .wb-watch, .wb-watch + .wb-journey-shot {margin-top:14px}
+.wb-watch + .wb-note {margin-top:12px}
+.wb-stack .wb-watch {justify-content:center;text-align:left;max-width:620px;margin-left:auto;margin-right:auto}
