@@ -156,6 +156,7 @@ document.querySelectorAll("form.enquiry-form").forEach(form => {
         `We’ll reply within one business day. A copy is on its way to ${data.email}.`;
       form.replaceWith(done);
       done.focus();
+      siteStat("enquiry_sent", form.dataset.kind);
     } catch (error) {
       show(error instanceof TypeError
         ? "We couldn’t reach our server. Please try again, or email info@nuroburst.com."
@@ -165,3 +166,64 @@ document.querySelectorAll("form.enquiry-form").forEach(form => {
     }
   });
 });
+
+// WEB-STATS-01 (2026-10-30) - Nic: "build our own, visits + sources +
+// conversion + video". Counts page views, Request a demo / Contact us sent,
+// and walkthrough videos started / watched to the end, in Nuroburst's own
+// database. No cookies and nothing personal: the browser sends the page, the
+// site it came from, utm_ tags, its time zone (for country) and phone or
+// desktop. Automated browsers aren't counted. Open any page once with
+// ?nostats to stop counting this browser (?stats counts it again) - so the
+// team's own visits don't inflate the numbers.
+const STATS_URL = "https://nuroburst-api.onrender.com/api/v1/public/site-events";
+const statsOff = (() => {
+  try {
+    const q = new URLSearchParams(location.search);
+    if (q.has("nostats")) localStorage.setItem("nb-nostats", "1");
+    if (q.has("stats")) localStorage.removeItem("nb-nostats");
+    return localStorage.getItem("nb-nostats") === "1";
+  } catch { return false; }
+})() || navigator.webdriver || !navigator.sendBeacon;
+
+function siteStat(kind, target) {
+  if (statsOff) return;
+  const event = { k: kind, p: location.pathname };
+  if (target) event.t = target;
+  try {
+    navigator.sendBeacon(STATS_URL, new Blob([JSON.stringify(event)], { type: "text/plain" }));
+  } catch { /* stats never break the page */ }
+}
+
+if (!statsOff) {
+  const q = new URLSearchParams(location.search);
+  const view = {
+    k: "pageview",
+    p: location.pathname,
+    r: document.referrer,
+    us: q.get("utm_source") || "",
+    um: q.get("utm_medium") || "",
+    uc: q.get("utm_campaign") || "",
+    tz: (() => { try { return Intl.DateTimeFormat().resolvedOptions().timeZone || ""; } catch { return ""; } })(),
+    m: window.matchMedia("(max-width: 760px)").matches,
+  };
+  try {
+    navigator.sendBeacon(STATS_URL, new Blob([JSON.stringify(view)], { type: "text/plain" }));
+  } catch { /* stats never break the page */ }
+
+  // Each video counts once per page visit: started, and watched to the end
+  // (they loop, so "the end" = the first time it reaches its last second).
+  walkthroughs.forEach(video => {
+    const name = (video.getAttribute("src") || "").split("/").pop().replace(/(-v\d+)?\.mp4$/, "");
+    let started = false;
+    let finished = false;
+    video.addEventListener("play", () => {
+      if (!started) { started = true; siteStat("video_start", name); }
+    });
+    video.addEventListener("timeupdate", () => {
+      if (!finished && video.duration && video.currentTime >= video.duration - 0.6) {
+        finished = true;
+        siteStat("video_end", name);
+      }
+    });
+  });
+}
