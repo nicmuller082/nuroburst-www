@@ -210,6 +210,38 @@ if (!statsOff) {
     navigator.sendBeacon(STATS_URL, new Blob([JSON.stringify(view)], { type: "text/plain" }));
   } catch { /* stats never break the page */ }
 
+  // WEB-STATS-02 (2026-10-30) - how long this page is on screen and how far
+  // down it gets scrolled, sent when the visitor leaves or switches tab (the
+  // same page load may report more than once; the server keeps its highest
+  // numbers via the random load id - not stored in the browser). While the
+  // page is on screen it also checks in once a minute for "on the site now".
+  const loadId = Math.random().toString(36).slice(2, 12).padEnd(8, "0");
+  let visibleMs = 0;
+  let visibleSince = document.visibilityState === "visible" ? Date.now() : null;
+  let deepest = 0;
+  const measureScroll = () => {
+    const page = document.documentElement;
+    const seen = (window.scrollY + window.innerHeight) / Math.max(page.scrollHeight, 1);
+    deepest = Math.max(deepest, seen >= 0.98 ? 100 : Math.floor(seen * 100));
+  };
+  measureScroll();
+  window.addEventListener("scroll", measureScroll, { passive: true });
+  const sendEngage = () => {
+    if (visibleSince !== null) { visibleMs += Date.now() - visibleSince; visibleSince = null; }
+    const event = { k: "engage", p: location.pathname, t: loadId, sec: Math.round(visibleMs / 1000), sc: deepest };
+    try {
+      navigator.sendBeacon(STATS_URL, new Blob([JSON.stringify(event)], { type: "text/plain" }));
+    } catch { /* stats never break the page */ }
+  };
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "hidden") sendEngage();
+    else visibleSince = Date.now();
+  });
+  window.addEventListener("pagehide", () => { if (visibleSince !== null) sendEngage(); });
+  window.setInterval(() => {
+    if (document.visibilityState === "visible") siteStat("ping");
+  }, 60000);
+
   // Each video counts once per page visit: started, and watched to the end
   // (they loop, so "the end" = the first time it reaches its last second).
   walkthroughs.forEach(video => {
