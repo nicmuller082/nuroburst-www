@@ -99,6 +99,15 @@ if (walkthroughs.length && "IntersectionObserver" in window &&
     observer.observe(video);
   });
 }
+// Nic (2026-11-05): "When selecting start your pilot it should take you to
+// the online form Request your Demo ... not open info@nuroburst in an email."
+// The "Start your pilot" buttons link to /request-demo.html?interest=pilot,
+// which preselects "A pilot for my team" here.
+const interestSelect = document.getElementById("enquiry-interest");
+if (interestSelect && new URLSearchParams(location.search).get("interest") === "pilot") {
+  const option = [...interestSelect.options].find(o => /pilot/i.test(o.textContent));
+  if (option) interestSelect.value = option.value;
+}
 // WEB-FORMS-01 (2026-10-21): "Request a demo" and "Contact us" send to the
 // Nuroburst API and show the result on the page - no redirect.
 const ENQUIRY_URL = "https://nuroburst-api.onrender.com/api/v1/public/enquiries";
