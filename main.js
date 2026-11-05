@@ -102,10 +102,15 @@ if (walkthroughs.length && "IntersectionObserver" in window &&
 // Nic (2026-11-05): "When selecting start your pilot it should take you to
 // the online form Request your Demo ... not open info@nuroburst in an email."
 // The "Start your pilot" buttons link to /request-demo.html?interest=pilot,
-// which preselects "A pilot for my team" here.
+// which preselects "A pilot for my team" here. Nic (2026-11-05): "unless they
+// specificly want to send a mail they should always be taken to a form" -
+// Pricing's Enterprise button (?interest=pricing) and Create's Signature link
+// (?interest=creation) preselect their own option the same way.
+const INTEREST_OPTIONS = { pilot: /pilot/i, pricing: /pricing/i, creation: /course creation/i };
 const interestSelect = document.getElementById("enquiry-interest");
-if (interestSelect && new URLSearchParams(location.search).get("interest") === "pilot") {
-  const option = [...interestSelect.options].find(o => /pilot/i.test(o.textContent));
+const interestWanted = INTEREST_OPTIONS[new URLSearchParams(location.search).get("interest")];
+if (interestSelect && interestWanted) {
+  const option = [...interestSelect.options].find(o => interestWanted.test(o.textContent));
   if (option) interestSelect.value = option.value;
 }
 // WEB-FORMS-01 (2026-10-21): "Request a demo" and "Contact us" send to the
